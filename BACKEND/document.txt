@@ -1,0 +1,1 @@
+## Project to test the RTC / ANGULAR 2 / REACTJS features ##
