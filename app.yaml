@@ -1,0 +1,14 @@
+#application:  balmy-curve-149710
+#version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: FRONTEND/index.html
+  upload: FRONTEND/index.html
+- url: /API/STUPID
+  script: BACKEND.stupid.hello
+- url: /USERS/*
+  script: BACKEND.handler.userHandler
