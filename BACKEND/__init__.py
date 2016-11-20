@@ -1,1 +1,1 @@
-import stupid
+from  chatFunctions import *

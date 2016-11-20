@@ -8,7 +8,15 @@ handlers:
 - url: /
   static_files: FRONTEND/index.html
   upload: FRONTEND/index.html
-- url: /API/STUPID
-  script: BACKEND.stupid.hello
-- url: /USERS/*
-  script: BACKEND.handler.userHandler
+- url: /API/getRoomList
+  script: BACKEND.getRoomList
+- url: /API/getUsersInRoom
+  script: BACKEND.getUsersInRoom
+- url: /API/getRoomChat
+  script: BACKEND.getRoomChat
+- url: /API/sendChat
+  script: BACKEND.sendChat
+- url: /API/changeRoom
+  script: BACKEND.changeRoom
+- url: /API/registerUser
+  script: BACKEND.registerUser
