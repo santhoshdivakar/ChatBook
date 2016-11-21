@@ -1,0 +1,14 @@
+We should store the following. 
+
+- Rooms List
+-- Do we store the rooms even after they expire
+-- How do we store permanent rooms v/s temporary rooms ( two seperate tables or expiry time? )
+--- I think expiry time?. and then removal from the table... also means we would have to store
+-- Rooms can have id's ?... or does the name become the id?.
+--- I think rooms better have Id's, in case of old rooms having the same name 
+- Which all users in the particular room
+- a 2/5 min window of what happened in that room.
+- a full-storage of the roomchat? ( do we need this? )
+- user-name/ip-address/time-stamp/other-details mapping? 
+
+
