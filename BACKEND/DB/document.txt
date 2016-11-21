@@ -4,11 +4,23 @@ We should store the following.
 -- Do we store the rooms even after they expire
 -- How do we store permanent rooms v/s temporary rooms ( two seperate tables or expiry time? )
 --- I think expiry time?. and then removal from the table... also means we would have to store
--- Rooms can have id's ?... or does the name become the id?.
---- I think rooms better have Id's, in case of old rooms having the same name 
+--- We can make a list of current tables in SQL DB. 
+---- The name of the table is rooms. 
+---- The schema would be roomId, categoryName, roomName, permanent(Y/N), creationTime
+--- We will make an outgoing table for capturing old tables
+----This table would be called archive-rooms
+----This table schema would be roomId, categoryName, roomName, creationTime,expiryTime 
+----
 - Which all users in the particular room
+-- I think simple structure is good enough here
+-- The table name is roomUsers ( hahaha , so creative )
+-- Schema -roomId, userIdList ( how are we going to represent this, can we do this in SQL or DataStore? )
+--
 - a 2/5 min window of what happened in that room.
 - a full-storage of the roomchat? ( do we need this? )
 - user-name/ip-address/time-stamp/other-details mapping? 
-
+-- Table of active users named "users"
+--- Schema would be userId, userName, ipAddress, creationTime
+-- Table to contain the archive of users - ArchiveUsers
+--- Schema : userId, userName, ipAddress, creationTime, lastActiveTime
 
