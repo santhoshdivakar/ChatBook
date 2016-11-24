@@ -11,6 +11,19 @@
 def getRoomList(): # No parameters whatsoever
     roomList = []
     # Log into the SQL DB and fetch the List
+    # Log into the SQL
+    cursor = conn.cursor()
+    stmt = "SELECT roomId, roomName, categoryName, userCount from rooms"
+    cursor.execute(stmt)
+    retVal = cursor.fetchall()
+    if len(retVal) > 0:
+	for item in retVal:
+	    itemDict = {}
+	    roomIndex,roomName,category,count = item
+	    itemDict[roomIndex] = (roomName,category,count)
+	    roomList.append(itemDict)
+        pass # Looping the room segment
+    pass # If the db fetches the values
     return {'status':'OK', 'roomList':roomList}
 
 
