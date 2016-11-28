@@ -7,10 +7,12 @@
   script: BACKEND.registerUser
   script: BACKEND.registerRoom
 """
+import sqlFunction
 
 def getRoomList(): # No parameters whatsoever
     roomList = []
     # Log into the SQL DB and fetch the List
+    conn = sqlFunction.connect()
     # Log into the SQL
     cursor = conn.cursor()
     stmt = "SELECT roomId, roomName, categoryName, userCount from rooms"

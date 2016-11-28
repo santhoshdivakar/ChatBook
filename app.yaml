@@ -4,6 +4,8 @@ runtime: python27
 api_version: 1
 threadsafe: true
 
+balmy-curve-149710:asia-east1:chatbook-sql
+
 handlers:
 - url: /
   static_files: FRONTEND/index.html
@@ -19,4 +21,15 @@ handlers:
 - url: /API/changeRoom
   script: BACKEND.changeRoom
 - url: /API/registerUser
-  script: BACKEND.registerUser
+  script: BACKEND.registerUsero
+
+libraries:
+- name: MySQLdb
+  version: "latest"
+
+# [START env_variables]
+env_variables:
+    CLOUDSQL_CONNECTION_NAME: balmy-curve-149710:asia-east1:chatbook-sql
+    CLOUDSQL_USER: chatuser
+    CLOUDSQL_PASSWORD: chatuser
+# [END env_variables]
