@@ -24,6 +24,7 @@ def connect():
 
         connection = MySQLdb.connect(
             unix_socket=cloudsql_unix_socket,
+	    database='chatbook',
             user=CLOUDSQL_USER,
             passwd=CLOUDSQL_PASSWORD)
 
@@ -34,5 +35,5 @@ def connect():
     #   $ cloud_sql_proxy -instances=your-connection-name=tcp:3306
     #
     else:
-        connection = MySQLdb.connect(host='127.0.0.1', user=CLOUDSQL_USER, passwd=CLOUDSQL_PASSWORD)
+        connection = MySQLdb.connect(host='127.0.0.1', user=CLOUDSQL_USER, passwd=CLOUDSQL_PASSWORD, database='chatbook')
     return connection
