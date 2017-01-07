@@ -7,7 +7,7 @@ threadsafe: true
 handlers:
 - url: /
   static_files: FRONTEND/index.html
-  upload: FRONTEND/index.html
+  upload: FRONTEND\/index.html
 - url: /API/getRoomList
   script: BACKEND.getRoomList
 - url: /API/getUsersInRoom
