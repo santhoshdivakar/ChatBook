@@ -7,16 +7,50 @@
   script: BACKEND.registerUser
   script: BACKEND.registerRoom
 """
+import sqlFunction
 
 def getRoomList(): # No parameters whatsoever
     roomList = []
     # Log into the SQL DB and fetch the List
+    conn = sqlFunction.connect()
+    cursor = conn.cursor()
+    stmt = "SELECT roomId, roomName, categoryName, userCount from rooms"
+    cursor.execute(stmt)
+    retVal = cursor.fetchall()
+    if len(retVal) > 0:
+	for item in retVal:
+	    itemDict = {}
+	    roomIndex,roomName,category,count = item
+	    itemDict[roomIndex] = (roomName,category,count)
+	    roomList.append(itemDict)
+        pass # Looping the room segment
+    pass # If the db fetches the values
     return {'status':'OK', 'roomList':roomList}
 
 
-def getUsersInRoom(roomName=''): # RoomName is string
+def getUsersInRoom(roomIndex=-1): # RoomIndex is number
     userList = []
-    # From the room get the number of users in the list
+    if roomIndex == -1:
+        return {'status':'NOK', 'message':'RoomIndex is not valid'}
+    # Log into the SQL DB and fetch the List
+    conn = sqlFunction.connect()
+    cursor = conn.cursor()
+    # First check if the room is valid
+    stmt = "SELECT roomId, roomName from rooms where roomId=%s"
+    cursor.execute(stmt,(roomIndex,))
+    retVal = cursor.fetchall()
+    if len(retVal) == 0:
+        return {'status':'NOK', 'message':'RoomIndex is not valid'}
+    # Now extract the users who are in the room
+    stmt = "SELECT userId,userName where roomIndex=%s"
+    cursor.execute(stmt,(roomIndex,))
+    retVal = cursor.fetchall()
+    if len(retVal) > 0:
+	for item in retVal:
+	    userTuple = [item[0],item[1]]
+	    userList.append(userTuple)
+	pass # Looping around list of users
+    pass # If the fetch returns more than one user
     return {'status':'OK', 'userList':userList}
     
 def getRoomChat(roomName=''): # RoomName is string
