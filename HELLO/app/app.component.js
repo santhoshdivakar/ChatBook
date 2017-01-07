@@ -12,20 +12,39 @@ var core_1 = require('@angular/core');
 var Hero = (function () {
     function Hero() {
     }
-    Hero = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: ' <h1>{{title}}</h1> <h2>{{hero.name}} details!</h2> <div><label>id: </label>{{hero.id}}</div> <div><label>name: </label>{{hero.name}}</div> '
-        }), 
-        __metadata('design:paramtypes', [])
-    ], Hero);
     return Hero;
 }());
 exports.Hero = Hero;
+var HEROES = [
+    { id: 2, name: 'Superman' },
+    { id: 3, name: 'Spiderman' },
+    { id: 4, name: 'Dr Strange' },
+    { id: 5, name: 'Magneto' },
+];
 var AppComponent = (function () {
     function AppComponent() {
-        this.hero = { id: 1, name: 'batman' };
+        this.title = 'Angular Heroes';
     }
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: 'my-app',
+            template: '
+                < h2 > Angular, Heroes: function () { } } / h2 >
+            (function () {
+                function class_1() {
+                }
+                return class_1;
+            }()), "heroes" >
+             * ngFor, "let hero of heroes" >
+            (function () {
+                function class_2() {
+                }
+                return class_2;
+            }()), "badge" > {}, { hero: .id }, /span> {{hero.name}}
+            < /li>
+            < /ul>'), 
+        __metadata('design:paramtypes', [])
+    ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;

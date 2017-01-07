@@ -1,11 +1,27 @@
 import { Component } from '@angular/core';
-
-@Component({
-  selector: 'my-app',
-  template: ' <h1>{{title}}</h1> <h2>{{hero.name}} details!</h2> <div><label>id: </label>{{hero.id}}</div> <div><label>name: </label>{{hero.name}}</div> '
-})
 export class Hero {
   id: number;
   name: string;
 }
-export class AppComponent  { title : 'Tour of heroes'; hero: Hero = {id :1,name:'batman'}}
+const HEROES: Hero[] = [
+  { id: 2, name: 'Superman' },
+  { id: 3, name: 'Spiderman' },
+  { id: 4, name: 'Dr Strange' },
+  { id: 5, name: 'Magneto' },
+];
+
+@Component({
+  selector: 'my-app',
+  template:'
+      <h2>Angular Heroes</h2>
+      <ul class="heroes">
+          <li *ngFor="let hero of heroes">
+              <span class="badge">{{hero.id}}</span> {{hero.name}}
+          </li>
+      </ul>'
+})
+export class AppComponent {
+  title = 'Angular Heroes';
+  heroes: HEROES;
+}
+
